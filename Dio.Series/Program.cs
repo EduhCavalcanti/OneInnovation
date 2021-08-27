@@ -4,22 +4,81 @@ namespace Dio.Series
 {
     class Program
     {
+        //Repositorio de séries
+        static SerieRepositorio repositorio = new SerieRepositorio();
+
         static void Main(string[] args)
         {
+            
+
             string opcao = OpcaoDoUsuario();
 
             while(opcao != "X"){
 
-                
+                switch(opcao){
+
+                    case("1"):
+                       ListarSeries();
+
+                    break;
+
+                    case("2"):
+
+
+                    break;
+
+                    case("3"):
+
+
+                    break;
+
+                    case("4"):
+
+
+                    break;
+
+                    case("5"):
+
+
+                    break;
+
+                    case("6"):
+                    
+                        Console.Clear();
+
+                    break;
+
+
+                }
 
             
-                OpcaoDoUsuario();
+            opcao = OpcaoDoUsuario();
             }
             Console.WriteLine("Programa encerrado");
         }
 
+            private static void ListarSeries(){
 
-        private static string OpcaoDoUsuario(){
+            
+            var lista = repositorio.Lista();
+
+            if(lista.Count == 0){
+                Console.WriteLine("Nenhuma séries disponível");
+                return;
+            }else{
+
+                foreach(var serie in lista){
+                    Console.WriteLine("Lista de séries: ");
+                    Console.WriteLine($"#ID {0}: - {1}", serie.retornaId(), serie.retornaritulo());
+                }
+            }
+
+        }
+
+
+
+        private static string OpcaoDoUsuario()
+        {
             Console.WriteLine();
             Console.WriteLine("Informe a opção desejada: ");
             Console.WriteLine("1 - Listar séries");

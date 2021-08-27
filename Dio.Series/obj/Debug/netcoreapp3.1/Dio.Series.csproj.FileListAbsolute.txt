@@ -9,3 +9,16 @@ C:\Users\Eduardo\PrimeirProjetoDigitalInnovation\Dio.Series\obj\Debug\netcoreapp
 C:\Users\Eduardo\PrimeirProjetoDigitalInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.AssemblyInfo.cs
 C:\Users\Eduardo\PrimeirProjetoDigitalInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.dll
 C:\Users\Eduardo\PrimeirProjetoDigitalInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.pdb
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.exe
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.deps.json
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.runtimeconfig.json
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.runtimeconfig.dev.json
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.dll
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\bin\Debug\netcoreapp3.1\Dio.Series.pdb
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.csproj.AssemblyReference.cache
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.AssemblyInfoInputs.cache
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.AssemblyInfo.cs
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.csproj.CoreCompileInputs.cache
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.dll
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.pdb
+C:\Users\eduhc\Documents\OneInnovation\Dio.Series\obj\Debug\netcoreapp3.1\Dio.Series.genruntimeconfig.cache
