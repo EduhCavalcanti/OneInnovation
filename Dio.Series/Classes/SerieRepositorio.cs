@@ -32,10 +32,9 @@ namespace Dio.Series
 
         public int ProximoId()
         {
-            return listaSerie.Count;
+            return listaSerie.Count ;
             //serie[0]..serie[1]..serie[2]
-            //Cout ele coloca sempre 1 a mais 
-            //serie[1]..serie[2]..serie[3]
+            
         }
 
         public Serie RetornarPoId(int id)
