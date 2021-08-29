@@ -26,10 +26,11 @@ namespace Dio.Series
         //Converte o Obj para String
         public override string ToString(){
             string retorno = "";
-            retorno += "Genêro" + this.Genero + Environment.NewLine;
-            retorno += "Título" + this.Titulo + Environment.NewLine;
-            retorno += "Descrição" + this.Descricao + Environment.NewLine;
-            retorno += "ano" + this.Ano + Environment.NewLine;
+            retorno += "Título: " + this.Titulo + Environment.NewLine;
+            retorno += "Genêro: " + this.Genero + Environment.NewLine;
+            retorno += "Descrição: " + this.Descricao + Environment.NewLine;
+            retorno += "ano: " + this.Ano + Environment.NewLine;
+            retorno += "Excluido: " + this.Excluido + Environment.NewLine;
 
             return retorno;
         }
@@ -42,6 +43,10 @@ namespace Dio.Series
         //Método para retornar Id da série
         public int retornaId(){
             return this.Id;
+        }
+
+        public bool retornarExcluido(){
+            return this.Excluido;
         }
         
         public void Excluir(){

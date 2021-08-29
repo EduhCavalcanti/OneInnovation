@@ -28,17 +28,17 @@ namespace Dio.Series
                     break;
 
                     case("3"):
-
+                        AtualizarSerie();
 
                     break;
 
                     case("4"):
-
+                        ExcluirSerie();
 
                     break;
 
                     case("5"):
-
+                        VisualizarSerie();
 
                     break;
 
@@ -51,7 +51,6 @@ namespace Dio.Series
 
                 }
 
-            
             opcao = OpcaoDoUsuario();
             }
             Console.WriteLine("Programa encerrado");
@@ -68,9 +67,13 @@ namespace Dio.Series
             }else{
 
                 Console.WriteLine("Lista de séries: ");
+
                 foreach(var serie in lista){
-                    
+                    var serieExcluida = serie.retornarExcluido();
+
+                    if(!serieExcluida){
                     Console.WriteLine("#ID {0}-{1}", serie.retornaId(), serie.retornaritulo());
+                    }
                 }
             }
 
@@ -105,18 +108,70 @@ namespace Dio.Series
             }
 
             private static void AtualizarSerie(){
-                  
+                  Console.WriteLine("Escolha qual série deseja atualizar: ");
+                  var series = repositorio.Lista();
+
+                  if(series.Count == 0){
+                Console.WriteLine("Nenhuma séries disponível");
+                return;
+                }else{
+                    //Listando as séries disponíveis
+                    foreach(var listaSeries in series){
+                        Console.WriteLine("#ID {0}-{1}", listaSeries.retornaId(), listaSeries.retornaritulo());
+                    }
+                    int escolhaUsuario = int.Parse(Console.ReadLine());
+
+                    foreach(int i in Enum.GetValues(typeof(Genero))){
+                        Console.WriteLine("{0}-{1}",i, Enum.GetName(typeof(Genero),i));
+                    }
+                    Console.WriteLine("Selecione um gênero acima: ");
+                    int entradaGenero = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Digite o título da série: ");
+                    string entradaTítulo = Console.ReadLine();
+
+                    Console.WriteLine("Digite o ano de inicio da série: ");
+                    int entradaAno = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Digite a descrição da série: ");
+                    string entradaDescricao = Console.ReadLine();
+
+                    Serie serieAtualizada = new Serie(id:escolhaUsuario,genero:(Genero)entradaGenero,titulo:entradaTítulo,descricao:entradaDescricao,ano:entradaAno);
+
+                    repositorio.Atualizar(escolhaUsuario, serieAtualizada);
+                }
+
             }
 
             private static void ExcluirSerie(){
+                Console.WriteLine("Selecione a série que deseja excluir");
+                var listaSeries  = repositorio.Lista();
 
+                foreach(var series in listaSeries){
+                    Console.WriteLine("#ID {0}-{1}", series.retornaId(), series.retornaritulo());
+                }
+                
+                int entradaIdParaExcluir = int.Parse(Console.ReadLine());
+
+                repositorio.Exclui(entradaIdParaExcluir);
+               
             }
 
             private static void VisualizarSerie(){
 
+                Console.WriteLine("Escolha um Id para visualizar a série detalhadamente: ");
+                var series = repositorio.Lista();
+
+                foreach(var serie in series){
+                    Console.WriteLine("#ID {0}-{1}", serie.retornaId(), serie.retornaritulo());
+                }
+
+                int escolhaIdSerie = int.Parse(Console.ReadLine());
+                
+                Console.WriteLine(series[escolhaIdSerie].ToString());
             }
-        private static string OpcaoDoUsuario()
-        {
+            
+            private static string OpcaoDoUsuario(){
             Console.WriteLine();
             Console.WriteLine("Informe a opção desejada: ");
             Console.WriteLine("1 - Listar séries");
@@ -129,7 +184,7 @@ namespace Dio.Series
             Console.WriteLine("");
 
             string opcaoDesejada = Console.ReadLine().ToUpper();
-            //Console.ReadLine();
+            
             return opcaoDesejada;
 
         }
