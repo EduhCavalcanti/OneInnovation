@@ -40,11 +40,6 @@ namespace Dio.Series
             return this.Titulo;
         }
 
-        //Método para retornar Id da série
-        public int retornaId(){
-            return this.Id;
-        }
-
         public bool retornarExcluido(){
             return this.Excluido;
         }
