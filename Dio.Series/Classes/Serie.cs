@@ -8,11 +8,13 @@ namespace Dio.Series
         private Genero Genero { get; set; }
         private string Titulo { get; set; }
         private string Descricao { get; set; }
-        private int Ano { get; set; }
 
         private bool Excluido {get; set;}
 
         //Construtor
+        public Serie()
+        {
+        }
         public Serie(int id, Genero genero, string titulo, string descricao, int ano){
             this.Id = id;
             this.Genero = genero;
@@ -37,11 +39,6 @@ namespace Dio.Series
         //Método para retornar titulo da série
         public string retornaritulo(){
             return this.Titulo;
-        }
-
-        //Método para retornar Id da série
-        public int retornaId(){
-            return this.Id;
         }
         
         public void Excluir(){
