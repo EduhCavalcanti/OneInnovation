@@ -23,7 +23,7 @@ namespace Dio.Series
                     break;
 
                     case("2"):
-                        IserirSerie();
+                        InserirSerie();
 
                     break;
 
@@ -79,25 +79,11 @@ namespace Dio.Series
 
         }
 
-            private static void IserirSerie(){
+            private static void InserirSerie(){
                 try{
-                    //Vai mostrar lista de gêneros
-                    foreach(int i in Enum.GetValues(typeof(Genero))){
-                        Console.WriteLine("{0}-{1}",i, Enum.GetName(typeof(Genero),i));
-                    }
-                    Console.WriteLine("Selecione um gênero acima: ");
-                    int entradaGenero = int.Parse(Console.ReadLine());
+                    //Vai retornar um obj do tipo Serie
+                    var novaSerie = AdicionandoSerie();
 
-                    Console.WriteLine("Digite o título da série: ");
-                    string entradaTítulo = Console.ReadLine();
-
-                    Console.WriteLine("Digite o ano de inicio da série: ");
-                    int entradaAno = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Digite a descrição da série: ");
-                    string entradaDescricao = Console.ReadLine();
-
-                    Serie novaSerie = new Serie(id:repositorio.ProximoId(), genero:(Genero)entradaGenero,titulo:entradaTítulo,descricao:entradaDescricao,ano:entradaAno);
                     //Vai inserir nova série passando obj 
                     repositorio.Insere(novaSerie);
 
@@ -111,9 +97,9 @@ namespace Dio.Series
                   Console.WriteLine("Escolha qual série deseja atualizar: ");
                   var series = repositorio.Lista();
 
-                  if(series.Count == 0){
-                Console.WriteLine("Nenhuma séries disponível");
-                return;
+                if(series.Count == 0){
+                    Console.WriteLine("Nenhuma séries disponível");
+                    return;
                 }else{
                     //Listando as séries disponíveis
                     foreach(var listaSeries in series){
@@ -121,23 +107,8 @@ namespace Dio.Series
                     }
                     int escolhaUsuario = int.Parse(Console.ReadLine());
 
-                    foreach(int i in Enum.GetValues(typeof(Genero))){
-                        Console.WriteLine("{0}-{1}",i, Enum.GetName(typeof(Genero),i));
-                    }
-                    Console.WriteLine("Selecione um gênero acima: ");
-                    int entradaGenero = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Digite o título da série: ");
-                    string entradaTítulo = Console.ReadLine();
-
-                    Console.WriteLine("Digite o ano de inicio da série: ");
-                    int entradaAno = int.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Digite a descrição da série: ");
-                    string entradaDescricao = Console.ReadLine();
-
-                    Serie serieAtualizada = new Serie(id:escolhaUsuario,genero:(Genero)entradaGenero,titulo:entradaTítulo,descricao:entradaDescricao,ano:entradaAno);
-
+                    var serieAtualizada = AtualizandoSerie(escolhaUsuario);
+                    
                     repositorio.Atualizar(escolhaUsuario, serieAtualizada);
                 }
 
@@ -172,6 +143,7 @@ namespace Dio.Series
             }
             
             private static string OpcaoDoUsuario(){
+
             Console.WriteLine();
             Console.WriteLine("Informe a opção desejada: ");
             Console.WriteLine("1 - Listar séries");
@@ -188,5 +160,51 @@ namespace Dio.Series
             return opcaoDesejada;
 
         }
+    
+            public static Serie AdicionandoSerie(){
+            //Vai mostrar lista de gêneros
+            foreach(int i in Enum.GetValues(typeof(Genero))){
+                Console.WriteLine("{0}-{1}",i, Enum.GetName(typeof(Genero),i));
+            }
+
+            Console.WriteLine("Selecione um gênero acima: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o título da série: ");
+            string entradaTítulo = Console.ReadLine();
+
+            Console.WriteLine("Digite o ano de inicio da série: ");
+            int entradaAno = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite a descrição da série: ");
+            string entradaDescricao = Console.ReadLine();
+
+            Serie novaSerie = new Serie(id:repositorio.ProximoId(),genero:(Genero)entradaGenero, titulo:entradaTítulo, descricao:entradaDescricao, ano:entradaAno);
+            
+            return novaSerie;
+        }
+
+            public static Serie AtualizandoSerie(int id){
+            foreach(int i in Enum.GetValues(typeof(Genero))){
+                Console.WriteLine("{0}-{1}",i, Enum.GetName(typeof(Genero),i));
+            }
+            Console.WriteLine("Selecione um gênero acima: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite o título da série: ");
+            string entradaTítulo = Console.ReadLine();
+
+            Console.WriteLine("Digite o ano de inicio da série: ");
+            int entradaAno = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite a descrição da série: ");
+            string entradaDescricao = Console.ReadLine();
+
+            Serie serieAtualizada = new Serie(id:id,genero:(Genero)entradaGenero,titulo:entradaTítulo,descricao:entradaDescricao,ano:entradaAno);
+
+            return serieAtualizada;
+        }
+    
+    
     }
 }
